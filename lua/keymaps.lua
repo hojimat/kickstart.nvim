@@ -49,3 +49,25 @@ vim.api.nvim_create_autocmd('TextYankPost', {
         vim.highlight.on_yank()
     end,
 })
+
+-- Running code with F5
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'cpp',
+    callback = function()
+        vim.api.nvim_buf_set_keymap(0, 'n', '<F5>', ':!g++ % -o %:r && ./%:t:r<CR>', { noremap = true, silent = true })
+    end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'python',
+    callback = function()
+        vim.api.nvim_buf_set_keymap(0, 'n', '<F5>', ':!python %<CR>', { noremap = true, silent = true })
+    end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'tex',
+    callback = function()
+        vim.api.nvim_buf_set_keymap(0, 'n', '<F5>', ':!pdflatex %<CR>', { noremap = true, silent = true })
+    end,
+})
