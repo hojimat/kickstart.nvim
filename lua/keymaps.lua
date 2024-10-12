@@ -34,6 +34,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- Map <Leader>q to close the current buffer and <Leader>w to write the current file
 vim.keymap.set('n', '<leader>q', ':q<CR>', { desc = 'Closed the buffer' })
 vim.keymap.set('n', '<leader>w', ':w<CR>', { desc = 'Saved the file' })
+vim.keymap.set('n', '<leader>e', ':e ', { desc = 'Open file' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
