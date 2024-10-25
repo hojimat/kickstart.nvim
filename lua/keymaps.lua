@@ -31,10 +31,12 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- Map <Leader>q to close the current buffer and <Leader>w to write the current file
+-- Map <Leader> key options
 vim.keymap.set('n', '<leader>q', ':q<CR>', { desc = 'Closed the buffer' })
 vim.keymap.set('n', '<leader>w', ':w<CR>', { desc = 'Saved the file' })
 vim.keymap.set('n', '<leader>e', ':e ', { desc = 'Open file' })
+vim.keymap.set('n', '<leader>i', ':lua vim.diagnostic.open_float()<CR>', { desc = 'Expand snippet' })
+vim.keymap.set('v', '<leader>y', '"+y', { desc = 'Yanked to +' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -62,12 +64,5 @@ vim.api.nvim_create_autocmd('FileType', {
     pattern = 'python',
     callback = function()
         vim.api.nvim_buf_set_keymap(0, 'n', '<F5>', ':!python %<CR>', { noremap = true, silent = true })
-    end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-    pattern = 'tex',
-    callback = function()
-        vim.api.nvim_buf_set_keymap(0, 'n', '<F5>', ':!pdflatex %<CR>', { noremap = true, silent = true })
     end,
 })
