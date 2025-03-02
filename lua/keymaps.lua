@@ -54,15 +54,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- Running code with F5
 vim.api.nvim_create_autocmd('FileType', {
-    pattern = 'cpp',
+    pattern = 'tex',
     callback = function()
-        vim.api.nvim_buf_set_keymap(0, 'n', '<F5>', ':!g++ % -o %:r && ./%:t:r<CR>', { noremap = true, silent = true })
-    end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-    pattern = 'python',
-    callback = function()
-        vim.api.nvim_buf_set_keymap(0, 'n', '<F5>', ':!python %<CR>', { noremap = true, silent = true })
+        vim.keymap.set('n', '<F5>', ':!pdflatex main.tex && evince main.pdf <CR>', { noremap = true, silent = true })
     end,
 })
