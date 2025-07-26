@@ -14,8 +14,6 @@ rtp:prepend(lazypath)
 
 require('lazy').setup({
   require 'plugins.guess-indent',
-  --require 'plugins.gitsigns',
-  -- require 'plugins.which-key',
   require 'plugins.telescope',
   require 'plugins.lsp.lazydev',
   require 'plugins.lsp.lspconfig',
@@ -29,7 +27,6 @@ require('lazy').setup({
   -- require 'plugins.lint',
   require 'plugins.autopairs',
   require 'plugins.neo-tree',
-  require 'plugins.lsp.go',
   -- { import = 'plugins' },
 }, {
   ui = { icons = vim.g.have_nerd_font and {} },

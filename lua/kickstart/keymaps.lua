@@ -59,3 +59,10 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.keymap.set('n', '<F5>', ':!pdflatex main.tex && evince main.pdf <CR>', { noremap = true, silent = true })
   end,
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'go',
+  callback = function()
+    vim.keymap.set('n', '<F5>', ':!go run . <CR>', { noremap = true, silent = true })
+  end,
+})
