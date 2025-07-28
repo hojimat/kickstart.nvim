@@ -64,5 +64,6 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = 'go',
   callback = function()
     vim.keymap.set('n', '<F5>', ':!go run . <CR>', { noremap = true, silent = true })
+    vim.keymap.set('n', '<F6>', ':!go test <CR>', { noremap = true, silent = true })
   end,
 })
